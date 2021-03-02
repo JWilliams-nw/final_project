@@ -6,5 +6,5 @@ const firebaseConfig = {} // replace
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig)
 }
-
+//test
 module.exports = firebase
