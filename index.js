@@ -23,8 +23,8 @@ firebase.auth().onAuthStateChanged(async function(user) {
         console.log(`new user class with ID ${userclassId} created`)
 
         document.querySelector('.userclasses').insertAdjacentHTML('beforeend', `
-          <div class="userclasses-${userclassId} py-4 text-xl border-b-2 border-purple-500 w-full">
-            <a href="#" class="done p-2 text-sm bg-green-500 text-white">✓</a>
+          <div class="userclasses-${userclassId} py-4 text-xl border-b-2 border-blue-500 w-full">
+            <a href="#" class="done p-2 text-sm bg-blue-500 text-white">X</a>
             ${userclassesText}
           </div>
         `)
@@ -48,8 +48,8 @@ firebase.auth().onAuthStateChanged(async function(user) {
       let userclassText = userclass.text
 
       document.querySelector('.userclasses').insertAdjacentHTML('beforeend', `
-        <div class="userclasses-${userclassid} py-4 text-xl border-b-2 border-purple-500 w-full">
-          <a href="#" class="done p-2 text-sm bg-green-500 text-white">✓</a>
+        <div class="userclasses-${userclassid} py-4 text-xl border-b-2 border-blue-500 w-full">
+          <a href="#" class="done p-2 text-sm bg-blue-500 text-white">X</a>
           ${userclassText}
         </div>
       `)
