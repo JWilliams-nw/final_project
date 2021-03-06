@@ -61,9 +61,30 @@ firebase.auth().onAuthStateChanged(async function(user) {
       })
     }
     
-    document.querySelector('h3').addEventListener('submit', async function(event) {
+    document.querySelector('.search').addEventListener('submit', async function(event) {
       event.preventDefault()
+      let searchText = document.querySelector('.search').value
 
+      let querySnapshot = await db.collection('userclasses').get()
+
+      let userclasses = querySnapshot.docs
+      for (let i=0; i<userclasses.length; i++) {
+        let classId = userclasses[i].id
+        let userclass = userclasses[i].data()
+        let userclassText = userclass.text
+        if (searchText == userclassText) {
+
+        document.querySelector('.search').insertAdjacentHTML('beforeend', `
+          <div class="todo-${classId} py-4 text-xl border-b-2 border-purple-500 w-full">
+            <a href="#" class="done p-2 text-sm bg-green-500 text-white">✓</a>
+            ${userclassText}
+          </div>
+        `)
+        } 
+      } 
+
+
+      console.log('.search click')
       
 
 
