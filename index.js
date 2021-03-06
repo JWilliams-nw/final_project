@@ -60,8 +60,15 @@ firebase.auth().onAuthStateChanged(async function(user) {
         await db.collection('userclasses').doc(userclassid).delete()
       })
     }
+    
+    document.querySelector('h3').addEventListener('submit', async function(event) {
+      event.preventDefault()
+
+      
 
 
+
+    })
 
 
 
