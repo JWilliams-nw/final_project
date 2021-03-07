@@ -26,8 +26,8 @@ document.querySelector(`#${classId}`).addEventListener('click', async function(e
   let docRef = await db.collection('userclasses').doc(classId).update({
   attendees: firebase.firestore.FieldValue.arrayUnion(`${user.displayName}`)  
   })
-
-  
+  document.querySelector(`#${classId}`).classList.add('opacity-20')
+ 
   })
 }
 
