@@ -25,10 +25,11 @@ firebase.auth().onAuthStateChanged(async function(user) {
   document.querySelector(`#${classId}`).addEventListener('click', async function(event) {
     event.preventDefault()
     let docRef = await db.collection('userclasses').doc(`${classId}`).get()
-    document.querySelector('.userclasses').insertAdjacentHTML('beforeend', `
+    document.querySelector('.userlist').innerHTML = 
+     `
     <div class="kclass py-4 text-xl w-full">
       <a id=${classId} href="#" class="taken p-2 text-sm bg-green-500 text-white">${names}</a>
-    </div> `)
+    </div> `
 
   })
   
