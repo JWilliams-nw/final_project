@@ -16,20 +16,50 @@ for (let i=0; i<classArray.length; i++) {
   let className = course.data().name
   let classId = course.id
   console.log(classArray[i].data())
+  let myclass = classArray[i].data()
+  console.log(myclass.attendees)
   document.querySelector('.userclasses').insertAdjacentHTML('beforeend', `
   <div class="kclass py-4 text-xl w-full">
     <a id=${classId} href="#" class="taken p-2 text-sm bg-green-500 text-white">${className}</a>
   </div>
 `)
+  for(let j=0; j<myclass.attendees.length; j++) {
+  let student = myclass.attendees[j]
+  console.log(`${student} is ${user.displayName}?`)
+  if(student == user.displayName){
+    document.querySelector(`#${classId}`).classList.add('opacity-20')
+  }
+  } 
+  
 document.querySelector(`#${classId}`).addEventListener('click', async function(event) {
   event.preventDefault()
   let docRef = await db.collection('userclasses').doc(classId).update({
   attendees: firebase.firestore.FieldValue.arrayUnion(`${user.displayName}`)  
   })
   document.querySelector(`#${classId}`).classList.add('opacity-20')
- 
+ //await db.collection('userclasses').doc(`${classId}-${user.uid}`).set({})
   })
+
+
+
+  // //loop through class data for attendees, if 
+  // //let userSnapshot = await db.collection('userclasses').get()
+  // //let classuser = userSnapshot.docs
+  // //for(let j=0; j<classuser.length; i++) {
+  // let username = classuser[i]
+  // let usernametaken = username.docs().attendees
+  // if (usernametaken = true ) {
+  // document.querySelector(`#${classId}`).classList.add('opacity-20')
+  //}
+// }
+
+
+
 }
+
+
+
+
 
 document.querySelector('.sign-in-or-sign-out').innerHTML = `
 <button class="text-pink-500 underline sign-out">Sign Out</button>
