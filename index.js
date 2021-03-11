@@ -9,26 +9,28 @@ firebase.auth().onAuthStateChanged(async function(user) {
     })
 
  //Adds a button for each class in class database   
-let querySnapshot = await db.collection('userclasses').get()
-let classArray = querySnapshot.docs 
+//let querySnapshot = await db.collection('userclasses').get()
+//let classArray = querySnapshot.docs 
+let response = await fetch(`/.netlify/functions/classes`)
+    let classArray = await response.json()
+
 for (let i=0; i<classArray.length; i++) {
   let course = classArray[i]
-  let className = course.data().name
+  let className = course.name
   let classId = course.id
-  console.log(classArray[i].data())
-  let myclass = classArray[i].data()
-  console.log(myclass.attendees)
+ 
   document.querySelector('.userclasses').insertAdjacentHTML('beforeend', `
   <div class="kclass py-4 text-xl w-full">
     <a id=${classId} href="#" class="taken p-2 text-sm bg-green-500 text-white">${className}</a>
   </div>
 `)
-  for(let j=0; j<myclass.attendees.length; j++) {
+
+ for(let j=0; j<myclass.attendees.length; j++) {
   let student = myclass.attendees[j]
   console.log(`${student} is ${user.displayName}?`)
   if(student == user.displayName){
-    document.querySelector(`#${classId}`).classList.add('opacity-20')
-  }
+   document.querySelector(`#${classId}`).classList.add('opacity-20')
+ }
   } 
   
 document.querySelector(`#${classId}`).addEventListener('click', async function(event) {
@@ -78,7 +80,7 @@ document.location.href = 'index.html'
 
 
     console.log('.singed in')
-  } else {
+} else {
     // Signed out
     console.log('signed out')
   
