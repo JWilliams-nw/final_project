@@ -40,21 +40,6 @@ document.querySelector(`#${classId}`).addEventListener('click', async function(e
  //await db.collection('userclasses').doc(`${classId}-${user.uid}`).set({})
   })
 
-
-
-  // //loop through class data for attendees, if 
-  // //let userSnapshot = await db.collection('userclasses').get()
-  // //let classuser = userSnapshot.docs
-  // //for(let j=0; j<classuser.length; i++) {
-  // let username = classuser[i]
-  // let usernametaken = username.docs().attendees
-  // if (usernametaken = true ) {
-  // document.querySelector(`#${classId}`).classList.add('opacity-20')
-  //}
-// }
-
-
-
 }
 
 
