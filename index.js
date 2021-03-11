@@ -33,6 +33,22 @@ for (let i=0; i<classArray.length; i++) {
   
 document.querySelector(`#${classId}`).addEventListener('click', async function(event) {
   event.preventDefault()
+
+
+//////////////////////////DANNY's CODE/////////////
+let response = await fetch ('http://localhost:50948/.netlify/functions/course',{
+  method: 'Post',
+  body: JSON.stringify({
+    classId: classId,
+    className:className,
+    userId: user.uid
+  })
+})
+console.log(response)
+
+let json= await response.json()
+
+//////////////////////////DANNY'S CODE//////////////////////////////////
   let docRef = await db.collection('userclasses').doc(classId).update({
   attendees: firebase.firestore.FieldValue.arrayUnion(`${user.displayName}`)  
   })
