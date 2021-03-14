@@ -9,14 +9,20 @@ firebase.auth().onAuthStateChanged(async function(user) {
       })
   
    //Adds a button for each class in class database   
-  let querySnapshot = await db.collection('userclasses').get()
-  let classArray = querySnapshot.docs 
+
+   let response = await fetch(`/.netlify/functions/classes`)
+    let classArray = await response.json()
+    let response2 = await fetch(`/.netlify/functions/ClassTaken`)
+    let students = await response2.json()
+  // let querySnapshot = await db.collection('userclasses').get()
+  // let classArray = querySnapshot.docs 
   for (let i=0; i<classArray.length; i++) {
     let course = classArray[i]
-    let className = course.data().name
+    let className = course.name
     let classId = course.id
-    let names = course.data().attendees
-    console.log(classArray[i].data())
+    
+    let names = students[i].student
+    //console.log(classArray[i].data())
     document.querySelector('.userclasses').insertAdjacentHTML('beforeend', `
     <div class="kclass py-4 text-xl w-full">
       <a id=${classId} href="#" class="taken p-2 text-sm bg-green-500 text-white">${className}</a>
@@ -24,7 +30,7 @@ firebase.auth().onAuthStateChanged(async function(user) {
   `)
   document.querySelector(`#${classId}`).addEventListener('click', async function(event) {
     event.preventDefault()
-    let docRef = await db.collection('userclasses').doc(`${classId}`).get()
+    // let docRef = await db.collection('userclasses').doc(`${classId}`).get()
     document.querySelector('.userlist').innerHTML = 
      `
     <div class="kclass py-4 text-xl w-full">
