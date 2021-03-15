@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" type="text/css">
+      
+        <title>Course Search</title>
+      </head>
+
+      <nav class="flex items-center justify-between flex-wrap bg-purple-900 p-6 text-white">
+        <div class="flex items-center flex-shrink-0 text-white mr-6">
+          <span class="font-bold text-3xl">Kellogg Class Hub</span>
+        </div>
+        <div class="block lg:hidden">
+         
+        </div>
+        <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+          <div class="text-sm lg:flex-grow">
+            <a href="home.html" class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-purple-300 mr-4">
+              My Classes
+            </a>
+            <a href="search.html" class="block mt-4 lg:inline-block lg:mt-0 text-white font-bold underline hover:text-purple-300 mr-4">
+              Course Search
+            </a>
+          </div>
+          <div>
+            <a href="#" class="sign-in-or-sign-out inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-white hover:bg-purple-300 mt-4 lg:mt-0">Sign Out</a>
+          </div>
+        </div>
+      </nav>
+  
+      <div class="sign-in-or-sign-out text-right px-4 py-4"></div>
+      <body>
+
+        <div class="md:flex items-center"></div>
+        <div class="md:w-1/2 m-auto md:p-2"></div>
+        <h1 class = "font-bold text-4xl text-center text-black p-2"> Course Search </h1>
+        <h2 class= "text-center font-regular text-m text-black-700 my-2"> Click a course to see which classmates have already taken the course.</h1>
+      
+
+    
+          
+         
+          <h2 class = "font-bold text-l text-center text-gray-600 underline p-8"> Available Courses </h1>
+          <div class="md:flex container mx-auto userclasses w-full text-center grid grid-cols-3 divide-x divide-gray-300 bg-gray-50">
+            <!-- JavaScript puts stuff here -->
+          </div>
+          <div class="md:flex container mx-auto userlist w-full text-center">
+            <!-- JavaScript puts stuff here -->
+          </div>
+        
+        
+         
+          
+        
+        
+        
+          <!-- Put the Firebase config here -->
+          <!-- The core Firebase JS SDK is always required and must be listed first -->
+          <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+          <!-- Firebase Auth -->
+          <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/ui/4.7.3/firebase-ui-auth.js"></script>
+        
+          <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {  apiKey: "AIzaSyD4jYHyxTbajJlRUqfzEV1w7P8eHHOYYX4",
+          authDomain: "final-project-6dc13.firebaseapp.com",
+          projectId: "final-project-6dc13",
+          storageBucket: "final-project-6dc13.appspot.com",
+          messagingSenderId: "388947677610",
+          appId: "1:388947677610:web:81f2367175df424a229bd3"
+        
+            } // replace
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+          </script>
+          <script src="search.js"></script>
+        </body>
+        
+        </html>

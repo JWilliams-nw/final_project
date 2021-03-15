@@ -23,7 +23,7 @@ firebase.auth().onAuthStateChanged(async function (user) {
 
       document.querySelector('.userclasses').insertAdjacentHTML('beforeend', `
   <div class="kclass py-4 text-xl w-full">
-    <a id=${classId} href="#" class="taken p-2 text-sm bg-green-500 text-white">${className}</a>
+    <a id=${classId} href="#" class="taken p-2 text-sm border-4 rounded-md text-black">${className}</a>
   </div>
 `)
 
@@ -62,28 +62,14 @@ firebase.auth().onAuthStateChanged(async function (user) {
         //await db.collection('userclasses').doc(`${classId}-${user.uid}`).set({})
       })
      }
-    //  for(let j=0; j<myclass.attendees.length; j++) {
-    //   let student = myclass.attendees[j]
-    //   console.log(`${student} is ${user.displayName}?`)
-    //   if(student == user.displayName){
-    //    document.querySelector(`#${classId}`).classList.add('opacity-20')
-    //  }
-    //   } 
 
-
-
-
-
-    
-
-    //}
 
 
 
 
 
     document.querySelector('.sign-in-or-sign-out').innerHTML = `
-<button class="text-pink-500 underline sign-out">Sign Out</button>
+<button class="text-white underline sign-out">Sign Out</button>
 `
 
     document.querySelector('.sign-out').addEventListener('click', function (event) {
@@ -115,7 +101,7 @@ firebase.auth().onAuthStateChanged(async function (user) {
       signInOptions: [
         firebase.auth.EmailAuthProvider.PROVIDER_ID
       ],
-      signInSuccessUrl: 'index.html'
+      signInSuccessUrl: 'home.html'
     }
 
 
