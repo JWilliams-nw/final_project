@@ -1,5 +1,7 @@
 # Final Project Template
 
+Our final project is deployed via netlify at https://objective-ritchie-3059f2.netlify.app/
+
 KIEI-451 Winter 2021
 
 We have selected Project # 19 for the approved project list.
